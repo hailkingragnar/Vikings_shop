@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html
+        th:fragment="Parent(content,title)"
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+    <link  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" data-th-href="@{'/css/output.css'}"/>
+    <link rel="stylesheet" th:href="@{'/css/style.css'}"/>
+</head>
+<body class ="bg-white dark:text-white px-8" >
+<div th:replace="~{admin/adminnavbar::navbar}"></div>
+
+<div class="px-4">
+    <section th:replace="${content}" ></section>
+</div>
+
+<script th:src="@{'script/script.js'}"></script>
+<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+</body>
+</html>

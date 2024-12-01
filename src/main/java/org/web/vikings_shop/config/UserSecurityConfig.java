@@ -21,6 +21,9 @@ public class UserSecurityConfig {
     private AuthenticationSuccessHandlerOauth2 handler;
 
     @Autowired
+    private NormalLoginSuccesshandler normalLoginSuccesshandler;
+
+    @Autowired
     private UserDetailSecurityService userDetailSecurityService;
     @Bean
     public SecurityFilterChain configure(HttpSecurity http) throws Exception {
@@ -34,7 +37,7 @@ public class UserSecurityConfig {
         http.formLogin(formLogin -> {
             formLogin.loginPage("/login");
             formLogin.loginProcessingUrl("/authenticate");
-            formLogin.defaultSuccessUrl("/user/userhome" , true);
+            formLogin.successHandler(normalLoginSuccesshandler);
             formLogin.failureUrl("/login?error=true");
             formLogin.usernameParameter("email");
             formLogin.passwordParameter("password");

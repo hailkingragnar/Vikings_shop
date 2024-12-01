@@ -70,6 +70,8 @@ public class AuthenticationSuccessHandlerOauth2 implements AuthenticationSuccess
         if(user2 == null) {
             userRepo.save(user1);
 
+        }else {
+            user1.setRoles(user2.getRoles());
         }
 
 
@@ -86,9 +88,17 @@ public class AuthenticationSuccessHandlerOauth2 implements AuthenticationSuccess
         );
         SecurityContextHolder.getContext().setAuthentication(updatedAuth);
 
+
         // Redirect after successful authentication
-        new DefaultRedirectStrategy().sendRedirect(request, response, "/user/userhome");
-    }
+
+        if (updatedAuthorities.stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_ADMIN"))) {
+            new DefaultRedirectStrategy().sendRedirect(request, response, "/admin/home");
+        } else if (updatedAuthorities.stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_USER"))) {
+            new DefaultRedirectStrategy().sendRedirect(request, response, "/user/userhome");
+        } else {
+            // Redirect to a default page if no roles match
+            new DefaultRedirectStrategy().sendRedirect(request, response, "/");
+        }    }
 
 
     }
