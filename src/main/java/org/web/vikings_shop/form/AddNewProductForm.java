@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.web.multipart.MultipartFile;
 
 @Getter
 @Setter
@@ -16,4 +17,5 @@ public class AddNewProductForm {
     private int quantity;
     private String description;
     private String category;
+    private MultipartFile image;
 }

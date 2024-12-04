@@ -32,6 +32,7 @@ public class UserSecurityConfig {
                   .requestMatchers("/css/**", "/script/**", "/images/**", "/webjars/**").permitAll() // Allow static resources
                     .requestMatchers("/admin/**").hasRole("ADMIN") // Admin-only access
                     .requestMatchers("/user/**").hasAnyRole("USER", "ADMIN") // User access
+                  .requestMatchers("/user/**" , "/admin/**").authenticated()
                     .anyRequest().authenticated();
         });
         http.formLogin(formLogin -> {
@@ -52,10 +53,22 @@ public class UserSecurityConfig {
 
 
         http.csrf(AbstractHttpConfigurer::disable);
+
+        // Configure logout
         http.logout(logout -> {
-            logout.logoutUrl("/logout");
-            logout.logoutSuccessUrl("/login?logout=true");
+                         logout.logoutUrl("/logout") // URL to trigger logout
+                        .logoutSuccessUrl("/login?logout") // Redirect to login page with a logout message
+                        .invalidateHttpSession(true) // Invalidate the session
+                        .deleteCookies("JSESSIONID"); // Delete session cookies to prevent unauthorized access
+                });
+
+        // Session management
+        http.sessionManagement(sessionmanagement ->{
+                 sessionmanagement.invalidSessionUrl("/login?sessionExpired=true") // Redirect if session is invalid
+                .maximumSessions(1) // Allow only one session per user
+                .expiredUrl("/login?expired=true");
         });
+
 
 
 

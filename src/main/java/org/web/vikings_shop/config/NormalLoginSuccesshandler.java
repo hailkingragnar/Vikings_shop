@@ -24,7 +24,7 @@ public class NormalLoginSuccesshandler implements AuthenticationSuccessHandler {
         if (authorities.stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_ADMIN"))) {
             redirectUrl = "/admin/home";
         } else if (authorities.stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_USER"))) {
-            redirectUrl = "/user/userhome";
+            redirectUrl = "/user/home";
         }
 
         // Redirect the user
