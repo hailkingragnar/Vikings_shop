@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html
+        th:replace="~{user/userbase::Parent(~{::#content},'Orders')}"
+        lang="en">
+<head>
+
+</head>
+<body>
+<div id="content">
+
+  <div class="flex space-x-2 mt-16">
+    <!-- Category Menu -->
+    <div class="w-48 bg-white border border-gray-200 rounded-lg p-4">
+      <ul class="space-y-2">
+        <li>
+          <a th:href="@{'/user/profile'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <span class="text-gray-800">Manage Account</span>
+
+          </a>
+        </li>
+        <li>
+          <a th:href="@{'/user/order'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+            <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+            <span class="text-gray-800">My Orders</span>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{'/user/wishlist'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <span class="text-gray-800">Wishlist</span>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{'/user/reviews'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+
+            <span class="text-gray-800">My reviews</span>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{'/logout'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            <span class="text-gray-800">Logout</span>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{'/user/category/623i4569-e80b-02d3-a406-63535374003'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+            <i class="fa fa-mobile" aria-hidden="true"></i>
+            <span class="text-gray-800">Become a seller</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+
+
+
+<div class="container mx-auto p-6 px-4 bg-gray-100">
+  <h1 class="text-3xl font-bold text-gray-800 mb-6">My Wishlist</h1>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Wishlist Item -->
+    <div class="bg-white shadow-md rounded-lg overflow-hidden">
+      <img src="https://via.placeholder.com/300x200" alt="Product Image" class="w-full h-48 object-cover">
+      <div class="p-4">
+        <h2 class="text-lg font-semibold text-gray-800">Product Name</h2>
+        <p class="text-gray-600">$120.00</p>
+        <div class="mt-4 flex justify-between">
+          <button class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">View</button>
+          <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Remove</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add more wishlist items dynamically -->
+    <div class="bg-white shadow-md rounded-lg overflow-hidden">
+      <img src="https://via.placeholder.com/300x200" alt="Product Image" class="w-full h-48 object-cover">
+      <div class="p-4">
+        <h2 class="text-lg font-semibold text-gray-800">Another Product</h2>
+        <p class="text-gray-600">$80.00</p>
+        <div class="mt-4 flex justify-between">
+          <button class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">View</button>
+          <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Remove</button>
+        </div>
+      </div>
+    </div>
+    <!-- Example End -->
+  </div>
+</div>
+ </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html
+        th:replace="~{user/userbase::Parent(~{::#content},'Orders')}"
+        lang="en">
+<head>
+
+</head>
+<body>
+<div id="content">
+
+    <div class="flex space-x-2 mt-16">
+        <!-- Category Menu -->
+        <div class="w-48 bg-white border border-gray-200 rounded-lg p-4">
+            <ul class="space-y-2">
+                <li>
+                    <a th:href="@{'/user/profile'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <span class="text-gray-800">Manage Account</span>
+
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{'/user/order'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+                        <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                        <span class="text-gray-800">My Orders</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{'/user/wishlist'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <span class="text-gray-800">Wishlist</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{'/user/reviews'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+
+                        <span class="text-gray-800">My reviews</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{'/logout'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        <span class="text-gray-800">Logout</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{'/user/category/623i4569-e80b-02d3-a406-63535374003'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+                        <i class="fa fa-mobile" aria-hidden="true"></i>
+                        <span class="text-gray-800">Become a seller</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+
+
+<div class="container p-6 bg-gray-100">
+    <h1 class="text-3xl font-bold text-gray-800 mb-6">Order List</h1>
+    <div class="overflow-x-auto bg-white shadow-md rounded-lg">
+        <table class="table-auto w-full border-collapse border border-gray-200">
+            <thead>
+            <tr class="bg-gray-50">
+                <th class="px-4 py-2 border border-gray-300 text-left text-gray-600 font-semibold">Order ID</th>
+                <th class="px-4 py-2 border border-gray-300 text-left text-gray-600 font-semibold">Customer</th>
+                <th class="px-4 py-2 border border-gray-300 text-left text-gray-600 font-semibold">Date</th>
+                <th class="px-4 py-2 border border-gray-300 text-left text-gray-600 font-semibold">Status</th>
+                <th class="px-4 py-2 border border-gray-300 text-left text-gray-600 font-semibold">Total</th>
+                <th class="px-4 py-2 border border-gray-300 text-center text-gray-600 font-semibold">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Example Order Row -->
+            <tr class="hover:bg-gray-100">
+                <td class="px-4 py-2 border border-gray-300 text-gray-700">#12345</td>
+                <td class="px-4 py-2 border border-gray-300 text-gray-700">John Doe</td>
+                <td class="px-4 py-2 border border-gray-300 text-gray-700">2024-12-05</td>
+                <td class="px-4 py-2 border border-gray-300 text-gray-700">
+                    <span class="bg-green-100 text-green-800 text-sm font-medium px-2 py-1 rounded">Completed</span>
+                </td>
+                <td class="px-4 py-2 border border-gray-300 text-gray-700">$120.00</td>
+                <td class="px-4 py-2 border border-gray-300 text-center">
+                    <button class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">View</button>
+                   <!-- <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Delete</button> -->
+                </td>
+            </tr>
+            <!-- Add more rows dynamically -->
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+    </div>
+</div>
+</body>
+</html>

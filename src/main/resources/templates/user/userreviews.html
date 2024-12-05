@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html
+        th:replace="~{user/userbase::Parent(~{::#content},'Orders')}"
+        lang="en">
+<head>
+
+</head>
+<body>
+<div id="content">
+
+  <div class="flex space-x-2 mt-16">
+    <!-- Category Menu -->
+    <div class="w-48 bg-white border border-gray-200 rounded-lg p-4">
+      <ul class="space-y-2">
+        <li>
+          <a th:href="@{'/user/profile'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <span class="text-gray-800">Manage Account</span>
+
+          </a>
+        </li>
+        <li>
+          <a th:href="@{'/user/order'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+            <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+            <span class="text-gray-800">My Orders</span>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{'/user/wishlist'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <span class="text-gray-800">Wishlist</span>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{'/user/reviews'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+
+            <span class="text-gray-800">My reviews</span>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{'/logout'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            <span class="text-gray-800">Logout</span>
+          </a>
+        </li>
+        <li>
+          <a th:href="@{'/user/category/623i4569-e80b-02d3-a406-63535374003'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+            <i class="fa fa-mobile" aria-hidden="true"></i>
+            <span class="text-gray-800">Become a seller</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+
+
+<div class="bg-gray-100 min-h-screen p-6">
+    <div class="container mx-auto">
+  <h1 class="text-3xl font-bold text-gray-800 mb-6">My Reviews</h1>
+  <div class="space-y-6">
+    <!-- Start of Product Review -->
+    <div class="bg-white shadow-md rounded-lg p-6">
+      <h2 class="text-xl font-semibold text-gray-700">Product Name: <span class="text-gray-900">Wireless Earbuds</span></h2>
+      <p class="text-sm text-gray-500">Reviewed on: <span>December 4, 2024</span></p>
+      <div class="mt-2">
+        <!-- Star Rating -->
+        <div class="flex items-center mb-3">
+          <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.967a1 1 0 00.95.69h4.18c.969 0 1.371 1.24.588 1.81l-3.398 2.452a1 1 0 00-.364 1.118l1.287 3.966c.3.921-.755 1.688-1.538 1.118l-3.398-2.452a1 1 0 00-1.176 0L6.548 15.97c-.783.57-1.838-.197-1.538-1.118l1.287-3.966a1 1 0 00-.364-1.118L2.535 8.394c-.783-.57-.38-1.81.588-1.81h4.18a1 1 0 00.95-.69l1.286-3.967z"></path></svg>
+          <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.967a1 1 0 00.95.69h4.18c.969 0 1.371 1.24.588 1.81l-3.398 2.452a1 1 0 00-.364 1.118l1.287 3.966c.3.921-.755 1.688-1.538 1.118l-3.398-2.452a1 1 0 00-1.176 0L6.548 15.97c-.783.57-1.838-.197-1.538-1.118l1.287-3.966a1 1 0 00-.364-1.118L2.535 8.394c-.783-.57-.38-1.81.588-1.81h4.18a1 1 0 00.95-.69l1.286-3.967z"></path></svg>
+          <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.967a1 1 0 00.95.69h4.18c.969 0 1.371 1.24.588 1.81l-3.398 2.452a1 1 0 00-.364 1.118l1.287 3.966c.3.921-.755 1.688-1.538 1.118l-3.398-2.452a1 1 0 00-1.176 0L6.548 15.97c-.783.57-1.838-.197-1.538-1.118l1.287-3.966a1 1 0 00-.364-1.118L2.535 8.394c-.783-.57-.38-1.81.588-1.81h4.18a1 1 0 00.95-.69l1.286-3.967z"></path></svg>
+          <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.967a1 1 0 00.95.69h4.18c.969 0 1.371 1.24.588 1.81l-3.398 2.452a1 1 0 00-.364 1.118l1.287 3.966c.3.921-.755 1.688-1.538 1.118l-3.398-2.452a1 1 0 00-1.176 0L6.548 15.97c-.783.57-1.838-.197-1.538-1.118l1.287-3.966a1 1 0 00-.364-1.118L2.535 8.394c-.783-.57-.38-1.81.588-1.81h4.18a1 1 0 00.95-.69l1.286-3.967z"></path></svg>
+          <svg class="w-5 h-5 text-gray-300" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.967a1 1 0 00.95.69h4.18c.969 0 1.371 1.24.588 1.81l-3.398 2.452a1 1 0 00-.364 1.118l1.287 3.966c.3.921-.755 1.688-1.538 1.118l-3.398-2.452a1 1 0 00-1.176 0L6.548 15.97c-.783.57-1.838-.197-1.538-1.118l1.287-3.966a1 1 0 00-.364-1.118L2.535 8.394c-.783-.57-.38-1.81.588-1.81h4.18a1 1 0 00.95-.69l1.286-3.967z"></path></svg>
+        </div>
+        <p class="text-gray-700">
+          These earbuds have great sound quality and are very comfortable to wear for long periods. I would recommend them to anyone looking for affordable wireless earbuds.
+        </p>
+      </div>
+    </div>
+    <!-- End of Product Review -->
+
+    <!-- Add more reviews similarly -->
+  </div>
+    </div>
+</div>
+</div>
+</div>
+</body>
+</html>

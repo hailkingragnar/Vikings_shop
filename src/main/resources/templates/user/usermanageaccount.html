@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html
+        th:replace="~{user/userbase::Parent(~{::#content},'Category')}"
+        lang="en">
+<head>
+
+</head>
+<body>
+<div id="content">
+
+    <div class="flex space-x-2 mt-16">
+        <!-- Category Menu -->
+        <div class="w-48 bg-white border border-gray-200 rounded-lg p-4">
+            <ul class="space-y-2">
+                <li>
+                    <a th:href="@{'/user/category/646747bhd-e99b-12d0-a356-363543d'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <span class="text-gray-800">Manage Account</span>
+
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{'/user/category/123e4567-e89b-12d3-a456-426614174000'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+                        <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                        <span class="text-gray-800">My Orders</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{'/user/category/323e4567-e89b-12d3-a456-426614174002'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <span class="text-gray-800">Wishlist</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{'/user/category/223e4567-e89b-12d3-a456-426614174001'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+
+                        <span class="text-gray-800">My reviews</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{'/user/category/2348396e-e86b-12e3-b456-42661d4174003'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        <span class="text-gray-800">Logout</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{'/user/category/623i4569-e80b-02d3-a406-63535374003'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+                        <i class="fa fa-mobile" aria-hidden="true"></i>
+                        <span class="text-gray-800">Become a seller</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="min-h-screen-md w-full bg-gray-100 flex items-center justify-center py-12 px-4 " th:object="${user}">
+            <form th:action="@{'/user/updateddetails'}" method="post" enctype="multipart/form-data">
+                <div class="max-w-4xl w-full bg-white shadow-lg rounded-lg p-6">
+                    <h2 class="text-2xl font-bold text-gray-800 text-center">Profile Information</h2>
+
+                    <div class="grid grid-cols-2 gap-6 mt-4 py-2.5 items-center">
+                        <!-- First Full Name -->
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                            <input th:value="${user.name}"
+                                   type="text"
+                                   id="name"
+                                   name="firstName"
+                                   class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                   disabled
+                            />
+                        </div>
+
+
+                        <div>
+                            <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                            <input
+                                    type="password"
+                                    id="password"
+                                    name="email"
+                                    th:value="${user.password}"
+                                    class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                    disabled
+                            />
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="grid grid-cols-2 gap-6 py-2.5 items-center">
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                            <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    th:value="${user.email}"
+                                    class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                    disabled
+                            />
+                        </div>
+
+                        <!-- Phone Number -->
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                            <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    th:value="${user.phone}"
+                                    class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                    disabled
+                            />
+                        </div>
+                    </div>
+
+                    <!--  -->
+                    <div class="grid grid-cols-2 gap-6 py-2.5 items-center">
+                        <div>
+                            <label for="profile-picture" class="block text-sm font-medium text-gray-700">Profile Picture</label>
+                            <div class="mt-2">
+                                <!-- Image Preview -->
+                                <img
+                                        id="image-preview"
+                                        th:src="@{'/images/logonewecom.png'}"
+                                        alt="Profile Picture Preview"
+                                        class="w-24 h-24 rounded-full border border-gray-300 object-cover"
+                                />
+                                <!-- File Input -->
+                                <input
+                                        type="file"
+                                        id="profile-picture"
+                                        accept="image/*"
+                                        class="mt-2 block text-sm text-gray-500"
+                                        onchange="previewImageForProfile(event)"
+                                />
+                            </div>
+                        </div>
+
+
+
+                        <!-- Address -->
+                        <div>
+                            <label for="Address" class="block text-sm font-medium text-gray-700">Address</label>
+                            <input
+                                    type="text"
+                                    id="Address"
+                                    name="phone"
+                                    th:value="${user.address}"
+                                    class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                    disabled
+                            />
+                        </div>
+                    </div>
+
+
+
+                    <div class="mt-8">
+                        <!-- Edit Button -->
+                        <div class="flex justify-center">
+                            <button
+                                    type="button"
+                                    id="editButton"
+                                    class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                Edit Profile
+                            </button>
+                        </div>
+
+                        <!-- Save Changes Button (Hidden initially) -->
+                        <div id="saveChangesContainer" class="hidden">
+                            <div class="flex justify-center mt-4">
+                                <button
+                                        type="submit"
+                                        class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                                    Save Changes
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

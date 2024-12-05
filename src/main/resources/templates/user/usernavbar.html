@@ -21,15 +21,10 @@
             <!-- Buttons (Signup, Login, Cart) -->
             <div
                     class="flex items-center space-x-6 rtl:space-x-reverse text-gray-700">
-                <form th:action="@{'/user/profile'}" method="post">
-                    <!-- Hidden field to send the email -->
-                    <input type="hidden" name="email" th:value="${#authentication.name}">
-
-
+                   <a th:href="@{'/user/profile'}">
                     <button class="flex items-center hover:text-blue-500 transition-colors">
                     <i class="fa fa-user mr-2" aria-hidden="true"></i><span th:text="${#authentication.name}"></span>
-                </button>
-                </form>
+                </button> </a>
                 <a class="flex items-center hover:text-blue-500 transition-colors" th:href="@{'/logout'}">
                     <i class="fa fa-sign-in mr-2" aria-hidden="true"></i>Logout
                 </a>
