@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html
+        th:replace="~{user/userbase::Parent(~{::#content},'Category')}"
+        lang="en">
+<head>
+
+</head>
+<body>
+<div id="content">
+
+    <div class="flex space-x-3 mt-16">
+        <!-- Category Menu -->
+        <div class="w-64 bg-white border border-gray-200 rounded-lg p-4">
+            <ul class="space-y-2">
+                <li>
+                    <a th:href="@{'/user/category/646747bhd-e99b-12d0-a356-363543d'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <span class="text-gray-800">Manage Account</span>
+
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{'/user/category/123e4567-e89b-12d3-a456-426614174000'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+                        <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                        <span class="text-gray-800">My Orders</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{'/user/category/323e4567-e89b-12d3-a456-426614174002'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <span class="text-gray-800">Wishlist</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{'/user/category/223e4567-e89b-12d3-a456-426614174001'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+
+                        <span class="text-gray-800">My reviews</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{'/user/category/2348396e-e86b-12e3-b456-42661d4174003'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        <span class="text-gray-800">Logout</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{'/user/category/623i4569-e80b-02d3-a406-63535374003'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+                        <i class="fa fa-mobile" aria-hidden="true"></i>
+                        <span class="text-gray-800">Become a seller</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="min-h-screen bg-gray-100 flex items-center justify-center py-12 px-4 sm:px-32 lg:px-8">
+            <div class="max-w-md w-full bg-white shadow-lg rounded-lg p-6">
+                <h2 class="text-2xl font-bold text-gray-800 text-center">Profile Information</h2>
+                <form class="mt-6 space-y-4">
+                    <!-- Full Name -->
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                        <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                value="John Doe"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                disabled
+                        />
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                value="johndoe@example.com"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                disabled
+                        />
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                        <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                value="+123456789"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                disabled
+                        />
+                    </div>
+
+                    <!-- Edit Button -->
+                    <div class="flex justify-center">
+                        <button
+                                type="button"
+                                id="editButton"
+                                class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            Edit Profile
+                        </button>
+                    </div>
+
+                    <!-- Save Changes Button (Hidden initially) -->
+                    <div id="saveChangesContainer" class="hidden">
+                        <div class="flex justify-center mt-4">
+                            <button
+                                    type="submit"
+                                    class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                                Save Changes
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

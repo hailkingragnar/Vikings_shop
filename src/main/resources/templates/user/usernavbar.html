@@ -2,7 +2,7 @@
     <nav class="bg-white h-16 dark:bg-gray-900 fixed z-50 w-full top-0 left-0 right-0 border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center justify-between px-8 max-w-screen-xl mx-auto h-full">
             <!-- Logo -->
-            <a th:href="@{'/home'}" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <a th:href="@{'/user/home'}" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img th:src="@{'/images/logonewecom.png'}" class="h-8" alt="Logo">
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Vikings Shop</span>
             </a>
@@ -19,10 +19,17 @@
             </div>
 
             <!-- Buttons (Signup, Login, Cart) -->
-            <div class="flex items-center space-x-6 rtl:space-x-reverse text-gray-700">
-                <a class="flex items-center hover:text-blue-500 transition-colors" th:href="@{'/signup'}">
-                    <i class="fa fa-user" aria-hidden="true"></i>Profile
-                </a>
+            <div
+                    class="flex items-center space-x-6 rtl:space-x-reverse text-gray-700">
+                <form th:action="@{'/user/profile'}" method="post">
+                    <!-- Hidden field to send the email -->
+                    <input type="hidden" name="email" th:value="${#authentication.name}">
+
+
+                    <button class="flex items-center hover:text-blue-500 transition-colors">
+                    <i class="fa fa-user mr-2" aria-hidden="true"></i><span th:text="${#authentication.name}"></span>
+                </button>
+                </form>
                 <a class="flex items-center hover:text-blue-500 transition-colors" th:href="@{'/logout'}">
                     <i class="fa fa-sign-in mr-2" aria-hidden="true"></i>Logout
                 </a>

@@ -1,39 +1,40 @@
-<div th:fragment="slider" class="flex mt-16">
+<div th:fragment="slider" class="flex space-x-3 mt-16">
     <!-- Category Menu -->
     <div class="w-64 bg-white border border-gray-200 rounded-lg p-4">
         <ul class="space-y-2">
             <li>
-                <a href="#" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+                <a th:href="@{'/user/category/646747bhd-e99b-12d0-a356-363543d'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
                     <img th:src="@{'/images/accessory.png'}" alt="accessory" class="w-6 h-6">
                     <span class="text-gray-800">Accessories</span>
+
                 </a>
             </li>
             <li>
-                <a href="#" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+                <a th:href="@{'/user/category/123e4567-e89b-12d3-a456-426614174000'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
                     <img th:src="@{'/images/device.png'}" alt="Icon" class="w-6 h-6">
                     <span class="text-gray-800">Electronic Accessories</span>
                 </a>
             </li>
             <li>
-                <a href="#" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+                <a th:href="@{'/user/category/323e4567-e89b-12d3-a456-426614174002'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
                     <img th:src="@{'/images/book.png'}" alt="Icon" class="w-6 h-6">
                     <span class="text-gray-800">Book</span>
                 </a>
             </li>
             <li>
-                <a href="#" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+                <a th:href="@{'/user/category/223e4567-e89b-12d3-a456-426614174001'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
                     <img th:src="@{'/images/fashion.png'}" alt="Icon" class="w-6 h-6">
                     <span class="text-gray-800">Fashion</span>
                 </a>
             </li>
             <li>
-                <a href="#" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+                <a th:href="@{'/user/category/2348396e-e86b-12e3-b456-42661d4174003'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
                     <img th:src="@{'/images/grocery.png'}" alt="Icon" class="w-6 h-6">
                     <span class="text-gray-800">Groceries</span>
                 </a>
             </li>
             <li>
-                <a href="#" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
+                <a th:href="@{'/user/category/623i4569-e80b-02d3-a406-63535374003'}" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100">
                     <img th:src="@{'/images/homeappliance.png'}" alt="Icon" class="w-6 h-6">
                     <span class="text-gray-800">Home Appliances</span>
                 </a>
@@ -41,6 +42,7 @@
         </ul>
     </div>
 
+    <!-- Slider Section -->
     <!-- Slider Section -->
     <div class="ml-4 w-full">
         <div class="relative h-84 overflow-hidden rounded-lg" id="default-carousel" data-carousel="slide">
