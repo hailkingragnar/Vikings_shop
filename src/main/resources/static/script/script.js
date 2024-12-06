@@ -48,3 +48,20 @@ document.addEventListener("DOMContentLoaded", () => {
         editButton.style.display = "inline-flex";
     });
 });
+
+    function addToCart(button) {
+
+        let productId = button.getAttribute('data-product-id');
+        fetch('/cart/add', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: 'productId=' + encodeURIComponent(productId),
+        })
+            .then(response => response.text())
+            .then(data => {
+                alert(data); // Show the response (e.g., "Item added to cart!")
+            })
+            .catch(error => console.error('Error:', error));
+    }

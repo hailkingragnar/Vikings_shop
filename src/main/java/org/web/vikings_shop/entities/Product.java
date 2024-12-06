@@ -30,8 +30,22 @@ public class Product {
     private Set<WishList> wishlists;
 
     @OneToMany(mappedBy = "product" , fetch = FetchType.LAZY)
-    private Set<Cart> cart;
+    private Set<CartItem> cartitem;
 
-    @ManyToMany(mappedBy = "products") // This defines the inverse side of the relationship
+    @ManyToMany(mappedBy = "products" , fetch = FetchType.LAZY) // This defines the inverse side of the relationship
     private Set<Orders> orders;
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "pid='" + pid + '\'' +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                ", description='" + description + '\'' +
+                ", image='" + image + '\'' +
+                ", category=" + category.getCid() +  // Only include essential info to avoid recursion
+                '}';
+    }
+
 }

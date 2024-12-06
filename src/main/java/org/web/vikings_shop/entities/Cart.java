@@ -4,24 +4,36 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import net.minidev.json.annotate.JsonIgnore;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 public class Cart {
-
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-    private String id;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @OneToOne(fetch = FetchType.LAZY)
     private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id")
-    private Product product;
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<CartItem> items = new ArrayList<>();
 
-    private int quantity;
+
+    public Cart(User userEntity) {
+    }
+    public String toString() {
+        return "Cart{" +
+                "id=" + id +
+                ", userId=" + (user != null ? user.getId() : "null") +
+                ", itemsCount=" + (items != null ? items.size() : 0) +
+                '}';
+    }
+
+
 }

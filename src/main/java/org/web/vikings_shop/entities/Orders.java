@@ -36,6 +36,7 @@ public class Orders {
             joinColumns = @JoinColumn(name = "order_id"),
             inverseJoinColumns = @JoinColumn(name = "product_id")
     )
+
     private Set<Product> products;
 
     @OneToMany(mappedBy = "order")

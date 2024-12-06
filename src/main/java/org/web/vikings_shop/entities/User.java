@@ -29,11 +29,14 @@ public class User implements UserDetails {
     private String address;
     private String gender;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private Cart cart;
+
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private Set<WishList> wishlist;
 
     @OneToMany(mappedBy = "user" , fetch = FetchType.LAZY)
-    private Set<Cart> cart;
+    private Set<CartItem> cartitem;
 
     @OneToMany(mappedBy = "user" , fetch = FetchType.LAZY)
     private Set<Orders> order;
@@ -43,7 +46,18 @@ public class User implements UserDetails {
     @Column(name = "role")
     private Set<String> roles;
 
-
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                ", gender='" + gender + '\'' +
+                ", roles=" + roles +
+                '}';
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

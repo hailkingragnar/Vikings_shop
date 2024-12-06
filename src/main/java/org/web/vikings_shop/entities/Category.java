@@ -7,6 +7,7 @@ import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import net.minidev.json.annotate.JsonIgnore;
 
 import java.util.Set;
 
@@ -22,5 +23,8 @@ public class Category {
 
 
     @OneToMany(mappedBy = "category", fetch = FetchType.EAGER)
+
     private Set<Product> products;
+
+
 }
