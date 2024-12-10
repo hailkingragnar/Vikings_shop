@@ -9,10 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import org.web.vikings_shop.dto.CartItemDTO;
 import org.web.vikings_shop.dto.ProductDTO;
 import org.web.vikings_shop.dto.UserDTO;
-import org.web.vikings_shop.entities.Cart;
-import org.web.vikings_shop.entities.CartItem;
-import org.web.vikings_shop.entities.Product;
-import org.web.vikings_shop.entities.User;
+import org.web.vikings_shop.entities.*;
+import org.web.vikings_shop.form.UserForm;
+import org.web.vikings_shop.form.UserOrder;
 import org.web.vikings_shop.repo.CartItemRepo;
 import org.web.vikings_shop.repo.CartRepo;
 import org.web.vikings_shop.repo.ProductRepo;
@@ -28,7 +27,7 @@ import java.util.*;
 public class CartController {
 
     @Autowired
-    ProductService productService;
+   private ProductService productService;
     @Autowired
     private CartService cartService;
 
@@ -141,8 +140,57 @@ try{
 
     @RequestMapping("/checkout")
     public String Checkout( Model model) {
+        Optional<User> user = userRepo.findByEmail(userService.getLoggedInUserEmail());
+        User userEntity = user.get();
+        String userid = userEntity.getId();
+        Cart cart = cartRepo.findByUserId(userid);
+        List<CartItem> cartItems = cartItemRepo.findByCartId(cart.getId());
+         model.addAttribute("cartItems", cartItems);
+         double totalPrice = 0;
+         for(CartItem cartItem : cartItems) {
+           double price =   cartItem.getProduct().getPrice();
+           double quantity = cartItem.getQuantity();
+           totalPrice += price*quantity;
+         } model.addAttribute("totalprice", totalPrice);
+        UserOrder userOrder = new UserOrder();
+        model.addAttribute(userOrder);
 
 
     return "user/usercheckout";
     }
+
+    @ResponseBody
+    @RequestMapping("/savedetails")
+    public String saveDetails(@ModelAttribute UserOrder userorder){
+
+        Optional<User> user = userRepo.findByEmail(userService.getLoggedInUserEmail());
+        User userEntity = user.get();
+        Cart cart = userEntity.getCart();
+
+
+
+
+        ShippingDetails shippingDetails = new ShippingDetails();
+        shippingDetails.setCity(userorder.getCity());
+        shippingDetails.setCountry(userorder.getCountry());
+        shippingDetails.setState(userorder.getState());
+        shippingDetails.setDeliveryStatus("Successful");
+        shippingDetails.setAddressLine1(userorder.getAddressLineOne());
+        shippingDetails.setPhoneNumber(userorder.getPhone());
+        shippingDetails.setId(UUID.randomUUID().toString());
+        shippingDetails.setPostalCode(userorder.getZipCode());
+        shippingDetails.setTrackingNumber("");
+      //  shippingDetails.setDeliveryDate();
+        shippingDetails.setRecipientName(userorder.getRecipientName());
+
+        Orders order = new Orders();
+        order.setId(UUID.randomUUID().toString());
+
+
+
+        return "Successfully added";
+    }
+
+
+
 }
