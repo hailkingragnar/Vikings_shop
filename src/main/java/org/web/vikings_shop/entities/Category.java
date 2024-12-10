@@ -22,8 +22,7 @@ public class Category {
     private String description;
 
 
-    @OneToMany(mappedBy = "category", fetch = FetchType.EAGER)
-
+    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
     private Set<Product> products;
 
 

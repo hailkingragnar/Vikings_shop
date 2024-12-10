@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html
+        th:replace="~{user/userbase::Parent(~{::#content},'Checkout')}"
+        lang="en">
+<head>
+
+</head>
+<body>
+<div id="content">
+    <div class="bg-gray-100 font-sans">
+
+    <!-- Checkout Container -->
+    <div class="max-w-7xl mt-6 mx-auto px-4 py-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <!-- Order Summary Section -->
+            <div>
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Order Summary</h2>
+                <div class="bg-white p-6 shadow rounded-lg">
+                    <div class="flex justify-between mb-4">
+                        <div class="flex items-center">
+                            <img src="https://via.placeholder.com/80" alt="Product 1" class="w-16 h-16 rounded object-cover">
+                            <div class="ml-4">
+                                <h4 class="text-lg font-medium text-gray-800">Product Name</h4>
+                                <p class="text-sm text-gray-600">Quantity: 1</p>
+                            </div>
+                        </div>
+                        <p class="text-lg font-medium text-gray-800">$20.00</p>
+                    </div>
+                    <hr class="my-4">
+                    <div class="flex justify-between">
+                        <p class="text-gray-600">Subtotal</p>
+                        <p class="text-gray-800 font-medium">$20.00</p>
+                    </div>
+                    <div class="flex justify-between mt-2">
+                        <p class="text-gray-600">Shipping</p>
+                        <p class="text-gray-800 font-medium">$5.00</p>
+                    </div>
+                    <div class="flex justify-between mt-2">
+                        <p class="text-gray-600">Taxes</p>
+                        <p class="text-gray-800 font-medium">$2.00</p>
+                    </div>
+                    <hr class="my-4">
+                    <div class="flex justify-between text-lg font-semibold">
+                        <p>Total</p>
+                        <p>$27.00</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Checkout Form Section -->
+            <div>
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Checkout</h2>
+                <div class="bg-white p-6 shadow rounded-lg">
+                    <form action="#" method="POST">
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2" for="name">Full Name</label>
+                            <input type="text" id="name" class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" placeholder="John Doe">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2" for="email">Email</label>
+                            <input type="email" id="email" class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" placeholder="example@mail.com">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2" for="address">Address</label>
+                            <textarea id="address" class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" rows="3" placeholder="123 Main Street, City"></textarea>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2" for="city">City</label>
+                                <input type="text" id="city" class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" placeholder="City">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2" for="zip">Zip Code</label>
+                                <input type="text" id="zip" class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" placeholder="12345">
+                            </div>
+                        </div>
+
+                        <!-- Payment Options -->
+                        <div class="mb-6">
+                            <p class="block text-gray-700 font-medium mb-2">Payment Options</p>
+                            <div class="flex items-center gap-4">
+                                <div class="flex items-center">
+                                    <input type="radio" id="paypal" name="payment" class="h-4 w-4 text-blue-600 focus:ring-blue-500" checked>
+                                    <label for="paypal" class="ml-2 text-gray-800">Pay with PayPal</label>
+                                    <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" alt="PayPal" class="h-8 ml-4">
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="radio" id="credit-card" name="payment" class="h-4 w-4 text-blue-600 focus:ring-blue-500">
+                                    <label for="credit-card" class="ml-2 text-gray-800">Credit/Debit Card</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition">Place Order</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</body>
+</html>

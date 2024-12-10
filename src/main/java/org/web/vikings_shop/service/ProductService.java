@@ -1,5 +1,6 @@
 package org.web.vikings_shop.service;
 
+import org.web.vikings_shop.dto.CartItemDTO;
 import org.web.vikings_shop.entities.Category;
 import org.web.vikings_shop.entities.Product;
 
@@ -11,4 +12,5 @@ public interface ProductService {
 
    List<Product> getProductsByCategory(Category category);
 
+   void updateProductById(List<CartItemDTO> updatedQuantities,int cartId);
 }

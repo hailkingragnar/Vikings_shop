@@ -13,6 +13,7 @@ import org.web.vikings_shop.repo.UserRepo;
 import org.web.vikings_shop.service.CartService;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -23,15 +24,13 @@ public class CartServiceImpl implements CartService {
 
     @Autowired
     private CartRepo cartRepo;
-
     @Autowired
     private CartItemRepo cartItemRepo;
-
     @Autowired
     private ProductRepo productRepo;
-
     @Autowired
     private UserRepo userRepo;
+
 
     @Override
     public Cart addProductToCart(String productId) {
@@ -91,20 +90,28 @@ public class CartServiceImpl implements CartService {
     @Override
     public Cart removeProductFromCart(Integer cartItemId) {
         // Retrieve the cart item
+        System.out.println("Inside Cart");
         CartItem cartItem = cartItemRepo.findById(cartItemId)
                 .orElseThrow(() -> new IllegalArgumentException("Cart item not found"));
-
+         System.out.println("Inside CartItem");
         // Retrieve the product and restore stock
         Product product = cartItem.getProduct();
+        System.out.println("Inside Product");
+
         product.setQuantity(product.getQuantity() + cartItem.getQuantity());
         productRepo.save(product);
+        System.out.println("Saved Product");
 
         // Remove the item from the cart and delete it
         Cart cart = cartItem.getCart();
+        System.out.println("Inside Cart");
         cart.getItems().removeIf(item -> item.getId() == cartItemId);
+        System.out.println("Removed Product");
         cartItemRepo.delete(cartItem);
+         System.out.println("Removed CartItem");
 
-        return cartRepo.save(cart); // Save and return the updated cart
+        return cartRepo.save(cart);
+        // Save and return the updated cart
     }
 
     @Override
@@ -116,4 +123,14 @@ public class CartServiceImpl implements CartService {
         // Retrieve the user's cart
         return cartRepo.findByUserId(userEntity.getId());
     }
-}
+
+    @Override
+    public Double getUpdatedSubtotal(String UserId) {
+        Cart cart = cartRepo.findByUserId(UserId);
+        return cart.getItems().stream()
+                .mapToDouble(item -> item.getProduct().getPrice() * item.getQuantity()) // Multiply price by quantity
+                .sum(); // Sum up all item totals
+    }
+    }
+
+    // Method to calculate the updated subtotal for the user's cart

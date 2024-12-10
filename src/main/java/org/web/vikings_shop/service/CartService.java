@@ -6,5 +6,6 @@ public interface CartService {
     Cart addProductToCart(String productId);
     Cart removeProductFromCart(Integer cartItemId);
     Cart getCart();
+    Double getUpdatedSubtotal(String UserId);
 
 }
